@@ -3,7 +3,7 @@ package com.practice.recursion.backtracking;
 public class NQueen {
 
 	public static void main(String[] args) {
-		int n = 10;
+		int n = 4;
 		boolean[][] board = new boolean[n][n];
 
 		int count = queen(board, 0);
