@@ -23,7 +23,7 @@ public class LL {
 		dll.insertFirst(5);
 		dll.insertLast(13);
 		dll.display();
-		//dll.displayRev();
+		dll.displayRev();
 	}
 
 }

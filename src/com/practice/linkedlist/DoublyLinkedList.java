@@ -16,7 +16,6 @@ public class DoublyLinkedList {
 		}
 
 		public Node(int value, Node next, Node prev) {
-			super();
 			this.value = value;
 			this.next = next;
 			this.prev = prev;
@@ -28,13 +27,14 @@ public class DoublyLinkedList {
 		Node temp = new Node(value);
 		temp.next = head;
 		temp.prev = null;
+		if (head != null) {
+			head.prev = temp;
+		}
 		head = temp;
 		if (tail == null) {
 			tail = head;
 		}
-		if (head != null) {
-			head.prev = temp;
-		}
+		
 
 		size++;
 	}
