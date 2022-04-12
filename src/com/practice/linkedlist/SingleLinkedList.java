@@ -23,7 +23,7 @@ public class SingleLinkedList {
 		public String toString() {
 			return "Node [value=" + value + ", next=" + next + "]";
 		}
-		
+
 	}
 
 	public void insertFirst(int value) {
@@ -132,6 +132,41 @@ public class SingleLinkedList {
 		return null;
 	}
 
+	// insert using recursion
+	public void insertRec(int value, int index) {
+		head = insertRec(value, index, head);
+	}
+
+	private Node insertRec(int value, int index, Node node) {
+
+		if (index == 0) {
+			Node temp = new Node(value, node);
+			size++;
+			return temp;
+		}
+
+		node.next = insertRec(value, index - 1, node.next);
+
+		return node;
+	}
+
+	// https://leetcode.com/problems/remove-duplicates-from-sorted-list
+	public void deleteDuplicates() {
+		Node node = head;
+
+		while (node.next != null) {
+			if (node.value == node.next.value) {
+				node.next = node.next.next;
+				size--;
+			} else {
+				node = node.next;
+			}
+		}
+
+		tail = node;
+		tail.next = null;
+	}
+
 	public void display() {
 		Node curr = head;
 		while (curr != null) {
@@ -145,5 +180,73 @@ public class SingleLinkedList {
 	public int size() {
 		return size;
 	}
-	
+
+	// https://leetcode.com/problems/merge-two-sorted-lists/
+	public SingleLinkedList merge(SingleLinkedList first, SingleLinkedList second) {
+		Node f = first.head;
+		Node s = second.head;
+
+		SingleLinkedList ans = new SingleLinkedList();
+
+		while (f != null && s != null) {
+			if (f.value < s.value) {
+				ans.insertLast(f.value);
+				f = f.next;
+			} else {
+				ans.insertLast(s.value);
+				s = s.next;
+			}
+		}
+
+		while (f != null) {
+			ans.insertLast(f.value);
+			f = f.next;
+		}
+
+		while (s != null) {
+			ans.insertLast(s.value);
+			s = s.next;
+		}
+
+		return ans;
+	}
+
+	// https://leetcode.com/problems/linked-list-cycle-ii/submissions/
+	public Node detectCycle(Node head) {
+
+		Node fast = head;
+		Node slow = head;
+		Node start = head;
+		while (fast != null && fast.next != null) {
+			slow = slow.next;
+			fast = fast.next.next;
+
+			if (fast == slow) {
+				while (slow != start) {
+					slow = slow.next;
+					start = start.next;
+				}
+				return start;
+			}
+		}
+
+		return null;
+	}
+
+	// https://leetcode.com/problems/linked-list-cycle/
+	public boolean hasCycle(Node head) {
+		Node fast = head;
+		Node slow = head;
+
+		while (fast != null && fast.next != null) {
+			slow = slow.next;
+			fast = fast.next.next;
+
+			if (fast == slow) {
+				return true;
+			}
+		}
+
+		return false;
+	}
 }
