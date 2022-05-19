@@ -4,8 +4,28 @@ import java.util.Stack;
 
 public class NextSmallerElement {
 
+    public static void find(int nums[]){
+        Stack<Integer> stack = new Stack<>();
+        stack.push(-1);
+        /// {3,10,5,1,15,10,7,6}
+        for(int i = nums.length - 1; i > 0; i--){
+            if(nums[i] < stack.peek()){
+                stack.push(nums[i]);
+            } else {
+                stack.push(-1);
+            }
+        }
+        for(int i = stack.size() - 1; i >= 0; i--){
+            System.out.print(stack.get(i)+",");
+        }
+        System.out.println();
+    }
+
     public static void main(String[] args){
         int[] arr  = {3,10,5,1,15,10,7,6};
+
+        find(arr);
+        System.out.println("-------------------");
         //using brute force
         int[] small = smallerElement(arr);
         for(int a : small){
