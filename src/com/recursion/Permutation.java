@@ -1,17 +1,19 @@
 package com.recursion;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Permutation {
 
 	public static void main(String[] args) {
 
-		String str = "abc";
-
+		String str = "ABB";
+		char[] strSort = str.toCharArray();
+		Arrays.sort(strSort);
 		perm(str, new String());
 
-		List<String> list = perm1(str, "");
+		List<String> list = perm1(new String(strSort), "");
 		System.out.println(list);
 	}
 
