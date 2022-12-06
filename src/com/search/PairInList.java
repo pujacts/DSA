@@ -8,6 +8,18 @@ public class PairInList {
 
 	public static void main(String[] args) {
 
+
+		int xor = 0;
+		int arr[] = {1, 2, 3, 5, 5};
+		for(int ar : arr) {
+			xor ^= ar;
+		}
+
+		for(int i = 1; i <= 5; i++){
+			xor ^= i;
+		}
+		System.out.println(xor);
+
 		PairInList pair = new PairInList();
 		List<Integer> list1 = Arrays.asList(1, 10, 5, 6);
 		List<Integer> list2 = Arrays.asList(2, 4, 8, 0, 3);

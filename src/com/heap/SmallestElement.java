@@ -6,8 +6,8 @@ import java.util.PriorityQueue;
 public class SmallestElement {
 
     public static void main(String[] args) {
-        int []arr = {10, 5, 4 , 3 ,48, 15, 6 , 2 , 33, 53, 10};
-        int k = 4;
+        int []arr = {7,10,4,3,20,15};
+        int k = 3;
         int smallest = findSmallest(arr, k);
         System.out.println(smallest);
         int largest = findLargest(arr, k);
