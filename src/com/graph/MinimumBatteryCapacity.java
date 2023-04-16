@@ -64,12 +64,12 @@ public class MinimumBatteryCapacity {
     public static void main(String[] args) {
         int N = 3;
         int M = 3;
-        int[][] Roads = {
+ /*       int[][] Roads = {
                             {1, 2, 5},
                             {2, 3, 5},
                             {1, 3, 9}
-        };
-       // int[][] Roads = {{1, 2, 1},{2, 3, 6},{3, 6, 1}, {1, 4, 2}, {4, 5, 2},{5, 6, 4}};
+        };*/
+        int[][] Roads = {{1, 2, 1},{2, 3, 6},{3, 6, 1}, {1, 4, 2}, {4, 5, 2},{5, 6, 4}};
 
         int minBatteryCapacity = minimumBatteryCapacity(N, M, Roads);
         System.out.println("Minimum battery capacity needed: " + minBatteryCapacity);
